@@ -6,10 +6,6 @@ class Card{
     }
 }
 
-
-
-
-
 // chile class
 class Unit extends Card {
     // we are adding power and res to our Unit class
@@ -32,14 +28,6 @@ console.log(unitOne)
 const unitTwo = new Unit("Black_BeltNinja",4,5,4)
 console.log(unitTwo)
 unitTwo.attack(unitOne)
-
-
-
-
-
-
-
-
 
 
 // child class
