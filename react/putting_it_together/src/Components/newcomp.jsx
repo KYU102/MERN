@@ -22,7 +22,7 @@ class Newcomp extends Component{
                 <h1>{this.props.name}</h1>
                 <p>age: {this.state.num}</p>
                 <p>Hair Color: {this.props.hair}</p>
-                <button onClick={this.add} >add</button>
+                <button onClick={this.add} >Birday Button for {this.props.name}</button>
             </div>
         );
     }
