@@ -72,11 +72,13 @@ const UserForm = (props) => {
         }
     }
 
-    const confirmPasswordHandler = (event, e) => {
-        setPassword(event.target.value)
-        setConfirmPassword(e.target.value)
-        if(event.target.value != e.target.value){
+    const confirmPasswordHandler = (event) => {
+        setConfirmPassword(event.target.value)
+        if(event.target.value !== password){
             setConfirmPasswordError("Passwords must match")
+        }
+        else{
+            setConfirmPasswordError("")
         }
     }
 
@@ -102,11 +104,11 @@ const UserForm = (props) => {
                     <label>Password: </label>
                     <input type="password" onChange={passwordHandler} name="password"/>
                     {passwordError ? <p>{passwordError} </p>: null}
+                    {confirmPasswordError ? <p>{confirmPasswordError} </p>: null}
                 </div>
                 <div>
                     <label>Confrim Password: </label>
                     <input type="password" onChange={confirmPasswordHandler} name="confrimPassword"/>
-                    {confirmPasswordError ? <p>{confirmPasswordError} </p>: null}
                 </div>
                 <input type="submit" value="Create User" />
             </form>
