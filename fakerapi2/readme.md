@@ -1,0 +1,9 @@
+- npm init -y
+- npm i express
+- npm install @faker-js/faker --save-dev
+- npm i -D nodemon
+- create start and dev in dependencies 
+- npm run dev
+- require express
+- create app
+- listen on a port
