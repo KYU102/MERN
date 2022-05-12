@@ -7,7 +7,6 @@ const People = () => {
     const [apiState, setAPIState] = useState()
     const [err, setErr] = useState(null)
 
-
     useEffect(() => {
         axios.get(`https://swapi.dev/api/people/${id}`) // MAKING A REQUEST TO GITHUB API
             .then(successResponse => {
