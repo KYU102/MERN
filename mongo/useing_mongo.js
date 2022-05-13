@@ -27,10 +27,10 @@ db.students.remove({name: "David"}, true)
 db.students.remove({lucky_number: {$gt: 5}}, true)
 
 db.students.updateMany( {} , {$set: {number_of_belts: 0}})
-db.students.updateMany( {home_state: "WA"} , {$set: {number_of_belts: 1}})
-db.students.updateMany( {} , { $rename: { 'number_of_belts': 'belts_earned' } })
 
-db.students.updateMany({}, { $unset : { lucky_number : 1} })
+db.students.updateMany( {home_state: "WA"} , {$inc: {belts_earned: 1}})
+
+db.students.updateMany( {} , { $rename: { 'number_of_belts': 'belts_earned' } })
 
 db.students.updateMany({}, { $unset : { lucky_number : 1} })
 
