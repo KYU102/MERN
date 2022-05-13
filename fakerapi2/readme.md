@@ -2,6 +2,7 @@
 - npm i express
 - npm install @faker-js/faker --save-dev
 - npm i -D nodemon
+- sudo npm install -g nodemon
 - create start and dev in dependencies 
 - npm run dev
 - require express
