@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 8002;
+const port = 8003;
 const { faker } = require('@faker-js/faker');
 const Users = require('./Users');
 const Companies = require("./Companies");
@@ -41,4 +41,4 @@ app.get('/api/users/companies', (req, res) => {
 //   res.json({ msg: `Deleting Hero: ${req.params.id}` })
 // })
 
-app.listen(8002, () => console.log('Listening on port 8002'));
+app.listen(port, () => console.log('Listening on port 8003'));
