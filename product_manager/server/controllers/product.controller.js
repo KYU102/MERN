@@ -20,24 +20,23 @@ module.exports.allProducts = (req, res) => {
 }
 
 //GET ONE
-
 module.exports.oneProduct = (req, res) => {
     Product.findOne({ _id: req.params.product_id })
-        .then(oneProduct => res.json({ product: oneProduct }))
+        .then(oneProduct => res.json({ oneProduct }))
         .catch(err => res.json({ message: "Something went wrong", error: err }));
-};
+}
 
-//UPDATE
-module.exports.updateExistingJoke = (req, res) => {
-    Product.findOneAndUpdate({ _id: req.params.product_id }, req.body, { new: true })
-        .then(updatedProduct => res.json({ Product: updatedProduct }))
-        .catch(err => res.json({ message: "Something went wrong", error: err }));
-};
+// //UPDATE
+// module.exports.updateExistingJoke = (req, res) => {
+//     Product.findOneAndUpdate({ _id: req.params.product_id }, req.body, { new: true })
+//         .then(updatedProduct => res.json({ Product: updatedProduct }))
+//         .catch(err => res.json({ message: "Something went wrong", error: err }));
+// };
 
 
-//DELETE
-module.exports.deleteProduct = (req, res) => {
-    Product.deleteOne({ _id: req.params.product_id })
-        .then(result => res.json({ result: result }))
-        .catch(err => res.json({ message: "Something went wrong", error: err }));
-};
+// //DELETE
+// module.exports.deleteProduct = (req, res) => {
+//     Product.deleteOne({ _id: req.params.product_id })
+//         .then(result => res.json({ result: result }))
+//         .catch(err => res.json({ message: "Something went wrong", error: err }));
+// };
