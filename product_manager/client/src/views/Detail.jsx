@@ -23,8 +23,8 @@ const Detail = () => {
                 (product) ?
                     <div>
                         <h1>Title: {product.title}</h1>
-                        <h1>Pages: {product.price}</h1>
-                        <h1>Author: {product.description}</h1>
+                        <h1>Price: {product.price}</h1>
+                        <h1>Description: {product.description}</h1>
                     </div> : <h1>Loading....</h1>
             }
         </fieldset>
