@@ -1,0 +1,21 @@
+import React, {useState} from 'react'
+import Dashboard from '../components/Dashboard'
+import Form from '../components/Form'
+
+const Main = () => {
+
+    const [refreshState, setRefresh] = useState(false)
+    const refresh = () => {
+        setRefresh(!refreshState)
+    }
+
+    return (
+        <fieldset>
+            <legend>Main.jsx</legend>
+            <Form refresh={refresh} />
+            <Dashboard refreshState={refreshState} />
+        </fieldset>
+    )
+}
+
+export default Main
