@@ -21,8 +21,9 @@ module.exports.allProducts = (req, res) => {
 
 //GET ONE
 module.exports.oneProduct = (req, res) => {
+    console.log(req.params.product_id )
     Product.findOne({ _id: req.params.product_id })
-        .then(oneProduct => res.json({ oneProduct }))
+        .then(oneProduct => res.json( oneProduct ))
         .catch(err => res.json({ message: "Something went wrong", error: err }));
 }
 
