@@ -27,12 +27,12 @@ module.exports.oneProduct = (req, res) => {
         .catch(err => res.json({ message: "Something went wrong", error: err }));
 }
 
-// //UPDATE
-// module.exports.updateExistingJoke = (req, res) => {
-//     Product.findOneAndUpdate({ _id: req.params.product_id }, req.body, { new: true })
-//         .then(updatedProduct => res.json({ Product: updatedProduct }))
-//         .catch(err => res.json({ message: "Something went wrong", error: err }));
-// };
+//UPDATE
+module.exports.updateProduct = (req, res) => {
+    Product.findOneAndUpdate({ _id: req.params.product_id }, req.body, { new: true })
+        .then(updateProduct => res.json({ Product: updateProduct }))
+        .catch(err => res.json({ message: "Something went wrong", error: err }));
+};
 
 
 // //DELETE

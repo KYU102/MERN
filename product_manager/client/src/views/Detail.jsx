@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import Update from '../components/Update'
 
 const Detail = () => {
 
@@ -19,6 +20,8 @@ const Detail = () => {
     return (
         <fieldset>
             <legend>Detail.jsx</legend>
+            <div>
+                <Update />
             {
                 (product) ?
                     <div>
@@ -26,7 +29,10 @@ const Detail = () => {
                         <h1>Price: {product.price}</h1>
                         <h1>Description: {product.description}</h1>
                     </div> : <h1>Loading....</h1>
+                    
             }
+            <button>Delete</button>
+            </div>
         </fieldset>
     )
 }
