@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,  } from 'react'
 import axios from 'axios';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
     
 const Update = (props) => {
+
+const navigate = useNavigate()
+
     const { product_id } = useParams();
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState(0);
@@ -11,11 +14,13 @@ const Update = (props) => {
     useEffect(() => {
         axios.get('http://localhost:8000/api/products/' + product_id)
             .then(res => {
-                setTitle(res.data.title);
-                setPrice(res.data.price);
-                setDescription(res.data.description);
+                const {title, price, description} = res.data
+                setTitle(title);
+                setPrice(price);
+                setDescription(description);
             })
-    }, []);
+            .catch(err => console.group(err))
+    }, [])
     
     const updateProduct = e => {
         e.preventDefault();
@@ -24,7 +29,7 @@ const Update = (props) => {
             price,
             description
         })
-            .then(res => console.log(res))
+            .then(res => navigate('/'))
             .catch(err => console.error(err));
     }
     
@@ -33,7 +38,7 @@ const Update = (props) => {
             <h1>Update a Product</h1>
             <form onSubmit={updateProduct}>
                 <p>
-                    <label>First Name</label><br />
+                    <label>Title</label><br />
                     <input type="text" 
                     name="title" 
                     value={title} 

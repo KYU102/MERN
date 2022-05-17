@@ -1,10 +1,10 @@
 import React, { useEffect, useState} from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
-import Update from '../components/Update'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 
 const Detail = () => {
 
+    const navigate = useNavigate()
     // STATE FOR HOLDING ONE PRODUCT
     const [product, setProduct] = useState()
 
@@ -17,21 +17,29 @@ const Detail = () => {
             .catch(err => console.log(err))
     }, [])
 
+    const deleteProduct = (id) => {
+        axios.delete("http://localhost:8000/api/products/"+id)
+            .then(res => navigate("/"))
+            .catch(err => console.log(err))
+    }
+
     return (
         <fieldset>
             <legend>Detail.jsx</legend>
             <div>
-                <Update />
             {
                 (product) ?
                     <div>
                         <h1>Title: {product.title}</h1>
                         <h1>Price: {product.price}</h1>
                         <h1>Description: {product.description}</h1>
+                        <Link to={"/"+product_id+"/edit"}>
+                        Edit
+                        </Link>
                     </div> : <h1>Loading....</h1>
                     
             }
-            <button>Delete</button>
+            <button onClick={(e) => deleteProduct(product._id)}>Delete</button>
             </div>
         </fieldset>
     )

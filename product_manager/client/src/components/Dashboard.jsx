@@ -8,7 +8,7 @@ const Dashboard = (props) => {
     const [allProducts, setAllProducts] = useState([])
 
     // DESTRUCTURE FROM PROPS
-    const { refreshState } = props
+    const { refreshState, refresh } = props
 
     useEffect(() => {
         // MAKE A CALL TO EXPRESS, GET ALL BOOKS
@@ -16,6 +16,13 @@ const Dashboard = (props) => {
             .then(res => setAllProducts(res.data))  // INCOMING BOOKS ARE SET TO STATE
             .catch(err => console.log(err))
     }, [refreshState])
+
+    const deleteProduct = (id) => {
+        axios.delete("http://localhost:8000/api/products/"+id)
+            .then(res => refresh())
+            .catch(err => console.log(err))
+    }
+
 
     return (
         <fieldset>
@@ -27,6 +34,7 @@ const Dashboard = (props) => {
                                 <Link to={"/" + product._id}>
                                     <h1>{product.title}</h1>
                                 </Link>
+                                <button onClick={(e) => deleteProduct(product._id)}>Delete</button>
                             </div>
                         )
                     })

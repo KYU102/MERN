@@ -13,7 +13,7 @@ const Main = () => {
         <fieldset>
             <legend>Main.jsx</legend>
             <Form refresh={refresh} />
-            <Dashboard refreshState={refreshState} />
+            <Dashboard refresh={refresh} refreshState={refreshState} />
         </fieldset>
     )
 }
