@@ -17,7 +17,7 @@
 9. cd server
 10. npm init -y
 11. npm install express mongoose cors
-12. vs code: go into sever folder and create server.js file
+12. vs code: go into server folder and create server.js file
 13. copy and paste into server.js:
 
     const express = require('express');
@@ -78,3 +78,5 @@
 
     basically copy and paste from previus assingments for the rest of the files
     !!!!! DONT FORGET TO CHANGE THE NAMES !!!!!!!!
+
+    17. nodemon server.js
