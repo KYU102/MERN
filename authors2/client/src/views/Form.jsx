@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 
 const Form = (props) => {
 
     const navigate = useNavigate()
-    const [err,setErr] = useState([])
+    const [err, setErr] = useState([])
 
     // DECLARE STATE
     const [name, setName] = useState("")
@@ -42,7 +42,12 @@ const Form = (props) => {
     return (
         <fieldset>
             <legend>Form.jsx</legend>
+            <h1>Favorite Authors</h1>
+            <Link to={"/"}>
+                <p>Home</p>
+            </Link>
             <form onSubmit={submitHandler}>
+                <h2>Add a new author</h2>
                 <p>
                     Name:
                     <input type="text" name="name" onChange={(e) => setName(e.target.value)} value={name} />
@@ -52,7 +57,7 @@ const Form = (props) => {
             </form>
             {
                 err.map((errorMessage) => {
-                    return(
+                    return (
                         <p> {errorMessage}</p>
                     )
                 })
