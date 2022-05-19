@@ -11,12 +11,8 @@ function App() {
       <fieldset>
         <legend>App.js</legend>
         <Routes>
-          {/* ROOT ROUTE FOR MAIN */}
           <Route path="/" element={<Main />} />
-
-          {/* /:book_id ROUTE FOR DETAILS*/}
           <Route path="/new" element={<Form />} />
-
           <Route path='/:author_id' element={<Update />} />
         </Routes>
       </fieldset>

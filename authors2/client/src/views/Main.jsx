@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Dashboard from '../components/Dashboard'
-import Form from './Form'
 import { Link } from 'react-router-dom'
 
 const Main = () => {
@@ -20,6 +19,7 @@ const Main = () => {
                     </Link>
                     <h3>We have quotes by:</h3>
                     <Dashboard refresh={refresh} refreshState={refreshState} />
+
                 </div>
             </fieldset>
     )

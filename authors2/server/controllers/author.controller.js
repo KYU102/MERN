@@ -32,9 +32,9 @@ module.exports.oneAuthor = (req, res) => {
 
 //UPDATE
 module.exports.updateAuthor = (req, res) => {
-    Author.findOneAndUpdate({ _id: req.params.author_id }, req.body, { new: true })
+    Author.findOneAndUpdate({ _id: req.params.author_id }, req.body, { new: true, runValidators:true })
         .then(updateAuthor => res.json({ Author: updateAuthor }))
-        .catch(err => res.json({ message: "Something went wrong", error: err }));
+        .catch(err => res.status(400).json( err ));
 };
 
 

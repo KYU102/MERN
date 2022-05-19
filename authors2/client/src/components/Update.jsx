@@ -8,6 +8,7 @@ const Update = (props) => {
 
     const { author_id } = useParams();
     const [name, setName] = useState('');
+    const [err, setErr] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/authors/' + author_id)
@@ -24,7 +25,15 @@ const Update = (props) => {
             name
         })
             .then(res => navigate('/'))
-            .catch(err => console.error(err));
+            .catch(err => {
+                console.log(err.response.data.errors)
+                const errorResponse = err.response.data.errors;
+                const errorArr = []; 
+                for (const key of Object.keys(errorResponse)) {
+                    errorArr.push(errorResponse[key].message)
+                }
+                setErr(errorArr)
+            })
     }
 
     return (
@@ -45,6 +54,13 @@ const Update = (props) => {
                 <button onClick={() => (navigate('/'))} >Cancel </button>
                 <button>Submit</button>
             </form>
+            {
+                err.map((errorMessage) => {
+                    return (
+                        <p> {errorMessage}</p>
+                    )
+                })
+            }
         </div>
     )
 }
