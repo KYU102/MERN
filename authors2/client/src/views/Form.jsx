@@ -16,7 +16,7 @@ const Form = (props) => {
         const authorObj = {
             name
         }
-        axios.post("http://localhost:8000/api/authors/new", authorObj)
+        axios.post("http://localhost:8001/api/authors/new", authorObj)
             .then(res => {
                 navigate('/')
                 refresh()

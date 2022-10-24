@@ -66,7 +66,7 @@
             }
         }, {timestamps:true})
 
-        module.exports.Product = mongoose.model("Author", AuthorSchema)
+        module.exports.Author = mongoose.model("Author", AuthorSchema)
     
     
     

@@ -9,7 +9,7 @@ app.use(cors())
 app.use(express.json()) 
 app.use(express.urlencoded({exteneded:true}))
 
-// const teamRoutes = require("./routes/team.route")
-// teamRoutes(app)
+const authorRoutes = require("./routes/author.route")
+authorRoutes(app)
 
 app.listen(port, () => console.log(`Locked and Loaded! on: ${port}`));

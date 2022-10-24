@@ -11,13 +11,13 @@ const Dashboard = (props) => {
     const { refreshState, refresh } = props
 
     useEffect(() => {
-        axios.get("http://localhost:8000/api/authors")
+        axios.get("http://localhost:8001/api/authors")
             .then(res => setAllAuthors(res.data)) 
             .catch(err => console.log(err))
     }, [refreshState])
 
     const deleteAuthor = (id) => {
-        axios.delete("http://localhost:8000/api/authors/" + id)
+        axios.delete("http://localhost:8001/api/authors/" + id)
             .then(res => refresh())
             .catch(err => console.log(err))
     }
